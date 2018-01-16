@@ -64,6 +64,7 @@ public class SignInActivity extends Activity {
                     @Override
                     public void onFailure(Call<ConnectionResponse> call, Throwable t) {
 
+                        
                     }
                 });
             }
