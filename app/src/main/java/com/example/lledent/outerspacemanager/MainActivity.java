@@ -33,5 +33,6 @@ public class MainActivity extends Activity {
         searchesButton = (Button) findViewById(R.id.mainSearchesButtonID);
         spaceButton = (Button) findViewById(R.id.mainSpaceButtonID);
         galaxyButton = (Button) findViewById(R.id.mainGalaxyButtonID);
+        
     }
 }
