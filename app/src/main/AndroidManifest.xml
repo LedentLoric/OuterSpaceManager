@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SignUpActivity"
+            android:name=".SignInActivity"
             android:label="@string/menu_login">
 
             <intent-filter>
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignInActivity"
+            android:name=".SignUpActivity"
             android:label="@string/signin">
         </activity>
     </application>
