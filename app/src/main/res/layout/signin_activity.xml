@@ -97,7 +97,7 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/signinSignInButtonID"
+            android:id="@+id/signinSignUpButtonID"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

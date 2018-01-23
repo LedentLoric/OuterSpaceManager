@@ -1,6 +1,8 @@
 package com.example.lledent.outerspacemanager;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,15 +20,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class SignUpActivity extends Activity {
+    // Shared Preferences
+    public static final String PREFS_NAME = "MyPrefsFile";
+
     private EditText loginInput;
     private EditText emailInput;
     private EditText passwordInput;
     private Button sendButton;
 
+    private String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_activity);
+        final SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+
         loginInput = (EditText) findViewById(R.id.signupLoginInputID);
         emailInput = (EditText) findViewById(R.id.signupEmailInputID);
         passwordInput = (EditText) findViewById(R.id.signupPasswordInputID);
@@ -51,7 +60,16 @@ public class SignUpActivity extends Activity {
                     @Override
                     public void onResponse(Call<ConnectionResponse> call, Response<ConnectionResponse> response) {
                         if (response.code() == 200) {
-                            Toast.makeText(getApplicationContext(),"Votre compte a bien été créé.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Votre compte a bien été créé. Bienvenue !",Toast.LENGTH_SHORT).show();
+
+                            token = response.body().token;
+
+                            SharedPreferences.Editor editor = settings.edit();
+                            editor.putString("token", token);
+                            editor.commit();
+
+                            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(mainActivity);
 
                         } else {
                             Toast.makeText(getApplicationContext(),"Impossible de créer le compte",Toast.LENGTH_SHORT).show();

@@ -1,6 +1,7 @@
 package com.example.lledent.outerspacemanager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,10 +16,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignInActivity extends AppCompatActivity {
+    // Shared Preferences
+    public static final String PREFS_NAME = "MyPrefsFile";
+
     private EditText loginInput;
     private EditText passwordInput;
     private Button sendButton;
-    private Button signInButton;
+    private Button signUpButton;
 
     private String token;
 
@@ -26,11 +30,19 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signin_activity);
+        final SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+
+        token = settings.getString("token", "");
+
+        if (token != "") {
+            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(mainActivity);
+        }
 
         loginInput = (EditText) findViewById(R.id.signinLoginInputID);
         passwordInput = (EditText) findViewById(R.id.signinPasswordInputID);
         sendButton = (Button) findViewById(R.id.signinSendButtonID);
-        signInButton = (Button) findViewById(R.id.signinSignInButtonID);
+        signUpButton = (Button) findViewById(R.id.signinSignUpButtonID);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +65,12 @@ public class SignInActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"Bienvenue !",Toast.LENGTH_SHORT).show();
                             token = response.body().token;
 
-                            Toast.makeText(getApplicationContext(),token,Toast.LENGTH_SHORT).show();
+                            SharedPreferences.Editor editor = settings.edit();
+                            editor.putString("token", token);
+                            editor.commit();
+
+                            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(mainActivity);
 
                         } else {
                             Toast.makeText(getApplicationContext(),"Impossible de se connecter à ce compte",Toast.LENGTH_SHORT).show();
@@ -69,11 +86,11 @@ public class SignInActivity extends AppCompatActivity {
 
             }
         });
-        signInButton.setOnClickListener(new View.OnClickListener() {
+        signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent signInActivity = new Intent(getApplicationContext(), SignUpActivity.class);
-                startActivity(signInActivity);
+                Intent signUpActivity = new Intent(getApplicationContext(), SignUpActivity.class);
+                startActivity(signUpActivity);
             }
         });
     }
