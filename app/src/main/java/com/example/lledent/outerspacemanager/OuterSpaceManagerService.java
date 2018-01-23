@@ -20,4 +20,7 @@ public interface OuterSpaceManagerService {
 
     @GET("api/v1/users/get")
     Call<CurrentUserResponse> getCurrentUser(@Header("x-access-token") String token);
+
+    @GET("api/v1/buildings/list")
+    Call<BuildingsListResponse> getBuildingsList(@Header("x-access-token") String token);
 }

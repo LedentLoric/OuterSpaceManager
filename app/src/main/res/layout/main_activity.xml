@@ -8,12 +8,12 @@
         android:id="@+id/mainUsernameTextViewID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="0"
         android:text="Username"
         android:textAlignment="center"
-        android:textSize="24dp"
+        android:textSize="36sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -87,6 +87,14 @@
             android:padding="16dp"
             android:text="Galaxie"
             android:textSize="18sp" />
+        <Button
+            android:id="@+id/mainLogoutButtonID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Se déconnecter"
+            android:textSize="18sp" />
+
     </LinearLayout>
 
 </LinearLayout>

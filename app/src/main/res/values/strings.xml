@@ -2,4 +2,5 @@
     <string name="app_name">OuterSpaceManager</string>
     <string name="menu_login">Connexion</string>
     <string name="signin">Inscription</string>
+    <string name="building">Bâtiments</string>
 </resources>
