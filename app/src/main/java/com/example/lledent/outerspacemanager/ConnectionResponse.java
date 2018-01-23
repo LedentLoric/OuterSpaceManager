@@ -6,8 +6,8 @@ package com.example.lledent.outerspacemanager;
  */
 
 public class ConnectionResponse {
-    private String tocken;
-    private String expires;
+    public String token;
+    public String expires;
 
     public ConnectionResponse(){}
 }

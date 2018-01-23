@@ -13,4 +13,7 @@ import retrofit2.http.Path;
 public interface OuterSpaceManagerService {
     @POST("api/v1/auth/create")
     Call<ConnectionResponse> createUser(@Body User user);
+
+    @POST("api/v1/auth/login")
+    Call<ConnectionResponse> connectUser(@Body User user);
 }

@@ -51,10 +51,10 @@ public class SignUpActivity extends Activity {
                     @Override
                     public void onResponse(Call<ConnectionResponse> call, Response<ConnectionResponse> response) {
                         if (response.code() == 200) {
-                            Toast.makeText(getApplicationContext(),"Le compte a été créé.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Votre compte a bien été créé.",Toast.LENGTH_SHORT).show();
 
                         } else {
-                            Toast.makeText(getApplicationContext(),"Erreur",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Impossible de créer le compte",Toast.LENGTH_SHORT).show();
                         }
                     }
 
