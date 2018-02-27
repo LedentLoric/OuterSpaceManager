@@ -1,13 +1,22 @@
 package com.example.lledent.outerspacemanager;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toolbar;
+
+import com.google.gson.Gson;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,12 +36,14 @@ public class BuildingActivity extends AppCompatActivity {
 
     private String token;
 
+    private List<Building> apiBuildingsList;
+
+    private Building selectedBuilding;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.building_activity);
-//        ActionBar toolbar = getSupportActionBar();
-//        toolbar.setDisplayHomeAsUpEnabled(true);
         buildingListView = (ListView) findViewById(R.id.buildingListViewID);
 
         final SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
@@ -49,7 +60,19 @@ public class BuildingActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<BuildingsListResponse> call, Response<BuildingsListResponse> response) {
                 if (response.code() == 200) {
+                    apiBuildingsList = response.body().buildings;
                     buildingListView.setAdapter(new BuildingArrayAdapter(getApplicationContext(), response.body().buildings));
+                    buildingListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            selectedBuilding = apiBuildingsList.get(position);
+                            Gson gson = new Gson();
+                            String jsonSelectedBuilding = gson.toJson(selectedBuilding);
+                            Intent selectBuildingActivity = new Intent(getApplicationContext(), SelectedBuildingActivity.class);
+                            selectBuildingActivity.putExtra("selectedBuilding", jsonSelectedBuilding);
+                            startActivity(selectBuildingActivity);
+                        }
+                    });
                 }
             }
 

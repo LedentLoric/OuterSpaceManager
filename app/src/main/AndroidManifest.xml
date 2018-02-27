@@ -33,5 +33,9 @@
             android:name=".BuildingActivity"
             android:label="@string/building">
         </activity>
+        <activity
+            android:name=".SelectedBuildingActivity"
+            android:label="@string/building">
+        </activity>
     </application>
 </manifest>

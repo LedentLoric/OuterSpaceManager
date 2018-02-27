@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 /**
@@ -36,19 +38,13 @@ public class BuildingArrayAdapter extends ArrayAdapter {
         TextView buildingGasCost = (TextView) rowView.findViewById(R.id.buildingRowGasCostTextViewID);
         TextView buildingMineralCost = (TextView) rowView.findViewById(R.id.buildingRowMineralCostTextViewID);
 
-
+        Glide.with(rowView).load(values.get(position).imageUrl).into(buildingImage);
         buildingName.setText(values.get(position).name);
         buildingLevel.setText("Level : " + Integer.toString(values.get(position).level));
         buildindEffect.setText("Effect : " + values.get(position).effect);
         buildingGasCost.setText("Gas Cost (Lv.0) : " + Integer.toString(values.get(position).gasCostLevel0));
         buildingMineralCost.setText("Mineral Cost (Lv.0) : " + Integer.toString(values.get(position).mineralCostLevel0));
-//        textView.setText(values[position]);
-//        String s = values[position];
-//        if (s.startsWith("iPhone")) {
-//            imageView.setImageResource(R.drawable.no);
-//        } else {
-//            imageView.setImageResource(R.drawable.ok);
-//        }
+
         return rowView;
     }
 }
