@@ -23,4 +23,7 @@ public interface OuterSpaceManagerService {
 
     @GET("api/v1/buildings/list")
     Call<BuildingsListResponse> getBuildingsList(@Header("x-access-token") String token);
+
+    @POST("api/v1/buildings/create/{id}")
+    Call<GetBuildingResponse> getBuilding(@Header("x-access-token") String token, @Path("id") int buildingID);
 }
