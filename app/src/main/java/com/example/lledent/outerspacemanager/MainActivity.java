@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private Button logoutButton;
 
     private String token;
+
+    private CurrentUserResponse user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<CurrentUserResponse> call, Response<CurrentUserResponse> response) {
                 if (response.code() == 200) {
-                    username.setText(response.body().username);
-                    points.setText("Points : " + response.body().points);
+                    user = response.body();
+                    username.setText(user.username);
+                    points.setText("Points : " + Integer.toString(user.points));
 
                 } else if (response.code() == 403) {
                     settings.edit().remove("token").commit();
@@ -78,6 +83,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<CurrentUserResponse> call, Throwable t) {
 
+            }
+        });
+
+        // OVERVIEW
+        overviewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Gson gson = new Gson();
+                String jsonUser = gson.toJson(user);
+                Intent overviewActivity = new Intent(getApplicationContext(), OverviewActivity.class);
+                overviewActivity.putExtra("currentUser", jsonUser);
+                startActivity(overviewActivity);
             }
         });
 

@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by lledent on 23/01/2018.
  */
 
-public class BuildingActivity extends AppCompatActivity {
+public class BuildingActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     // Shared Preferences
     public static final String PREFS_NAME = "MyPrefsFile";
 
@@ -30,51 +30,29 @@ public class BuildingActivity extends AppCompatActivity {
 
     private String token;
 
-    private List<Building> apiBuildingsList;
-
     private Building selectedBuilding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.building_activity);
-        buildingListView = (ListView) findViewById(R.id.buildingListViewID);
+    }
 
-        final SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        token = settings.getString("token", "");
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        BuildingsListFragment fraBuildingsList = (BuildingsListFragment) getSupportFragmentManager().findFragmentById(R.id.buildingBuildingListFragmentID);
+        SelectedBuildingFragment fraSelectedBuilding = (SelectedBuildingFragment) getSupportFragmentManager().findFragmentById(R.id.buildingSelectedBuildingFragmentID);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://outer-space-manager.herokuapp.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        OuterSpaceManagerService service = retrofit.create(OuterSpaceManagerService.class);
-        Call<BuildingsListResponse> request = service.getBuildingsList(token);
+        selectedBuilding = fraBuildingsList.apiBuildingsList.get(position);
+        Gson gson = new Gson();
+        String jsonSelectedBuilding = gson.toJson(selectedBuilding);
 
-        request.enqueue(new Callback<BuildingsListResponse>() {
-            @Override
-            public void onResponse(Call<BuildingsListResponse> call, Response<BuildingsListResponse> response) {
-                if (response.code() == 200) {
-                    apiBuildingsList = response.body().buildings;
-                    buildingListView.setAdapter(new BuildingArrayAdapter(getApplicationContext(), response.body().buildings));
-                    buildingListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            selectedBuilding = apiBuildingsList.get(position);
-                            Gson gson = new Gson();
-                            String jsonSelectedBuilding = gson.toJson(selectedBuilding);
-                            Intent selectBuildingActivity = new Intent(getApplicationContext(), SelectedBuildingActivity.class);
-                            selectBuildingActivity.putExtra("selectedBuilding", jsonSelectedBuilding);
-                            startActivity(selectBuildingActivity);
-                        }
-                    });
-                }
-            }
-
-            @Override
-            public void onFailure(Call<BuildingsListResponse> call, Throwable t) {
-
-            }
-        });
-
+        if(fraSelectedBuilding == null|| !fraSelectedBuilding.isInLayout()){
+            Intent selectBuildingActivity = new Intent(getApplicationContext(), SelectedBuildingActivity.class);
+            selectBuildingActivity.putExtra("selectedBuilding", jsonSelectedBuilding);
+            startActivity(selectBuildingActivity);
+        } else {
+            fraSelectedBuilding.fillSelectedBuildingFragment(jsonSelectedBuilding);
+        }
     }
 }

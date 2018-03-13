@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <ListView
-        android:id="@+id/buildingListViewID"
+    <fragment
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:name="com.example.lledent.outerspacemanager.BuildingsListFragment"
+        android:id="@+id/buildingBuildingListFragmentID" />
 </LinearLayout>
