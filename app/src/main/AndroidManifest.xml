@@ -21,25 +21,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".SignUpActivity"
             android:label="@string/signin">
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
         </activity>
-        <activity
-            android:name=".BuildingActivity"
-            android:label="@string/building">
-        </activity>
-        <activity
-            android:name=".SelectedBuildingActivity"
-            android:label="@string/building">
-        </activity>
+
         <activity
             android:name=".OverviewActivity"
             android:label="@string/overview">
         </activity>
+
+        <activity
+            android:name=".BuildingActivity"
+            android:label="@string/building">
+        </activity>
+
+        <activity
+            android:name=".SelectedBuildingActivity"
+            android:label="@string/building">
+        </activity>
+
+        <activity
+            android:name=".FleetActivity"
+            android:label="@string/flotte">
+        </activity>
+
     </application>
 </manifest>

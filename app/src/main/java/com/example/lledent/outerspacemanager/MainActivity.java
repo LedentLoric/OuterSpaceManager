@@ -106,6 +106,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(buildingActivity);
             }
         });
+
+        // FLEET
+        fleetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent fleetActivity = new Intent(getApplicationContext(), FleetActivity.class);
+                startActivity(fleetActivity);
+            }
+        });
+
         // LOGOUT
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -33,17 +33,9 @@ public class BuildingArrayAdapter extends ArrayAdapter {
 
         ImageView buildingImage = (ImageView) rowView.findViewById(R.id.buildingRowImageID);
         TextView buildingName = (TextView) rowView.findViewById(R.id.buildingRowNameTextViewID);
-//        TextView buildingLevel = (TextView) rowView.findViewById(R.id.buildingRowLevelTextViewID);
-//        TextView biludindEffect = (TextView) rowView.findViewById(R.id.buildingRowEffectTextViewID);
-//        TextView buildingGasCost = (TextView) rowView.findViewById(R.id.buildingRowGasCostTextViewID);
-//        TextView buildingMineralCost = (TextView) rowView.findViewById(R.id.buildingRowMineralCostTextViewID);
 
         Glide.with(rowView).load(values.get(position).imageUrl).into(buildingImage);
         buildingName.setText(values.get(position).name);
-//        buildingLevel.setText("Level : " + Integer.toString(values.get(position).level));
-//        buildindEffect.setText("Effect : " + values.get(position).effect);
-//        buildingGasCost.setText("Gas Cost (Lv.0) : " + Integer.toString(values.get(position).gasCostLevel0));
-//        buildingMineralCost.setText("Mineral Cost (Lv.0) : " + Integer.toString(values.get(position).mineralCostLevel0));
 
         return rowView;
     }
