@@ -57,19 +57,6 @@ public class FleetActivity extends AppCompatActivity {
                 if (response.code() == 200) {
                     apiFleetList = response.body().ships;
                     fleetListView.setAdapter(new FleetArrayAdapter(getApplicationContext(), apiFleetList));
-//                    fleetListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                        @Override
-//                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                            selectedShip = apiShipsList.get(position);
-//
-//                            Gson gson = new Gson();
-//                            String jsonSelectedShip = gson.toJson(selectedShip);
-//
-//                            Intent selectShipActivity = new Intent(getApplicationContext(), SeletedShipActivity.class);
-//                            selectShipActivity.putExtra("selectedShip", jsonSelectedShip);
-//                            startActivity(selectShipActivity);
-//                        }
-//                    });
                 }
             }
 

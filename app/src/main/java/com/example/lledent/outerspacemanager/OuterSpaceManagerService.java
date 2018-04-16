@@ -31,6 +31,9 @@ public interface OuterSpaceManagerService {
     @GET("api/v1/fleet/list")
     Call<ShipsListResponse> getFleetList(@Header("x-access-token") String token);
 
+    @GET("api/v1/searches/list")
+    Call<SearchesListResponse> getSearchesList(@Header("x-access-token") String token);
+
     @GET("api/v1/ships/")
     Call<ShipsListResponse> getShipsList(@Header("x-access-token") String token);
 

@@ -43,7 +43,7 @@ public class GalaxyActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         OuterSpaceManagerService service = retrofit.create(OuterSpaceManagerService.class);
-        Call<UserListResponse> request = service.getUserList(token, 0, 20);
+        Call<UserListResponse> request = service.getUserList(token, 0, 19);
 
         request.enqueue(new Callback<UserListResponse>() {
             @Override

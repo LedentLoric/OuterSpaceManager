@@ -117,6 +117,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // SEARCHES
+        searchesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent searchesActivity = new Intent(getApplicationContext(), SearchesActivity.class);
+                startActivity(searchesActivity);
+            }
+        });
+
         // SHIPYARD
         shipyardButton.setOnClickListener(new View.OnClickListener() {
             @Override

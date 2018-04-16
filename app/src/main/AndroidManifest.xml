@@ -53,6 +53,16 @@
         </activity>
 
         <activity
+            android:name=".SearchesActivity"
+            android:label="@string/searches">
+        </activity>
+
+        <activity
+            android:name=".SelectedSearchActivity"
+            android:label="@string/searches">
+        </activity>
+
+        <activity
             android:name=".ShipyardActivity"
             android:label="@string/shipyard">
         </activity>
