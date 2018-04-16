@@ -43,7 +43,8 @@ public class BuildingsListFragment extends Fragment {
         token = settings.getString("token", "");
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://outer-space-manager.herokuapp.com")
+//                .baseUrl("https://outer-space-manager.herokuapp.com")
+                .baseUrl("https://outer-space-manager-staging.herokuapp.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         OuterSpaceManagerService service = retrofit.create(OuterSpaceManagerService.class);

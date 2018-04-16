@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Vue générale"
+            android:text="Overview"
             android:textSize="18sp" />
 
         <Button
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Bâtiments"
+            android:text="Building"
             android:textSize="18sp" />
 
         <Button
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Flotte"
+            android:text="Fleet"
             android:textSize="18sp" />
 
         <Button
@@ -69,15 +69,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Recherches"
+            android:text="Search"
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/mainSpaceButtonID"
+            android:id="@+id/mainShipyardButtonID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Chantier spatial"
+            android:text="Space Shipyard"
             android:textSize="18sp" />
 
         <Button
@@ -85,14 +85,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Galaxie"
+            android:text="Galaxy"
             android:textSize="18sp" />
         <Button
             android:id="@+id/mainLogoutButtonID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Se déconnecter"
+            android:text="Log out"
             android:textSize="18sp" />
 
     </LinearLayout>

@@ -19,26 +19,27 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by lledent on 16/04/2018.
+ * Created by lledent on 09/04/2018.
  */
 
-public class FleetActivity extends AppCompatActivity {
+public class ShipyardActivity extends AppCompatActivity {
 
     // Shared Preferences
     public static final String PREFS_NAME = "MyPrefsFile";
 
     private String token;
 
-    private ListView fleetListView;
-    private List<Ship> apiFleetList;
+    private ListView shipsListView;
+    private List<Ship> apiShipsList;
+    private Ship selectedShip;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fleet_activity);
+        setContentView(R.layout.shipyard_activity);
 
-        fleetListView = (ListView) findViewById(R.id.fleetListViewID);
+        shipsListView = (ListView) findViewById(R.id.shipsListViewID);
 
         final SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         token = settings.getString("token", "");
@@ -49,27 +50,27 @@ public class FleetActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         OuterSpaceManagerService service = retrofit.create(OuterSpaceManagerService.class);
-        Call<ShipsListResponse> request = service.getFleetList(token);
+        Call<ShipsListResponse> request = service.getShipsList(token);
 
         request.enqueue(new Callback<ShipsListResponse>() {
             @Override
             public void onResponse(Call<ShipsListResponse> call, Response<ShipsListResponse> response) {
                 if (response.code() == 200) {
-                    apiFleetList = response.body().ships;
-                    fleetListView.setAdapter(new FleetArrayAdapter(getApplicationContext(), apiFleetList));
-//                    fleetListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                        @Override
-//                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                            selectedShip = apiShipsList.get(position);
-//
-//                            Gson gson = new Gson();
-//                            String jsonSelectedShip = gson.toJson(selectedShip);
-//
-//                            Intent selectShipActivity = new Intent(getApplicationContext(), SeletedShipActivity.class);
-//                            selectShipActivity.putExtra("selectedShip", jsonSelectedShip);
-//                            startActivity(selectShipActivity);
-//                        }
-//                    });
+                    apiShipsList = response.body().ships;
+                    shipsListView.setAdapter(new ShipArrayAdapter(getApplicationContext(), apiShipsList));
+                    shipsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            selectedShip = apiShipsList.get(position);
+
+                            Gson gson = new Gson();
+                            String jsonSelectedShip = gson.toJson(selectedShip);
+
+                            Intent selectShipActivity = new Intent(getApplicationContext(), SeletedShipActivity.class);
+                            selectShipActivity.putExtra("selectedShip", jsonSelectedShip);
+                            startActivity(selectShipActivity);
+                        }
+                    });
                 }
             }
 

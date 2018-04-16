@@ -5,6 +5,7 @@ package com.example.lledent.outerspacemanager;
  */
 
 public class Ship {
+    public int amount;
     public int gasCost;
     public int life;
     public int maxAttack;

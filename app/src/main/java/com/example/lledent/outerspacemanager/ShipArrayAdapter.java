@@ -39,7 +39,7 @@ public class ShipArrayAdapter extends ArrayAdapter {
 
         shipName.setText(values.get(position).name);
         shipLife.setText("Life : " + Integer.toString(values.get(position).life));
-        shipAttack.setText("Attack : " + Integer.toString(values.get(position).maxAttack));
+        shipAttack.setText("Attack : " + Integer.toString(values.get(position).minAttack) + " - " + Integer.toString(values.get(position).maxAttack));
         shipShield.setText("Shield : " + Integer.toString(values.get(position).shield));
 
         return rowView;

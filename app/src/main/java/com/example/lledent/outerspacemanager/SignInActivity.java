@@ -52,7 +52,8 @@ public class SignInActivity extends AppCompatActivity {
                 user.setPassword((passwordInput.getText().toString()));
 
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("https://outer-space-manager.herokuapp.com")
+//                        .baseUrl("https://outer-space-manager.herokuapp.com")
+                        .baseUrl("https://outer-space-manager-staging.herokuapp.com")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
                 OuterSpaceManagerService service = retrofit.create(OuterSpaceManagerService.class);

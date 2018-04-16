@@ -24,7 +24,7 @@
 
         <activity
             android:name=".SignUpActivity"
-            android:label="@string/signin">
+            android:label="@string/signup">
         </activity>
 
         <activity
@@ -49,7 +49,22 @@
 
         <activity
             android:name=".FleetActivity"
-            android:label="@string/flotte">
+            android:label="@string/fleet">
+        </activity>
+
+        <activity
+            android:name=".ShipyardActivity"
+            android:label="@string/shipyard">
+        </activity>
+
+        <activity
+            android:name=".SeletedShipActivity"
+            android:label="@string/shipyard">
+        </activity>
+
+        <activity
+            android:name=".GalaxyActivity"
+            android:label="@string/galaxy">
         </activity>
 
     </application>

@@ -1,14 +1,9 @@
 package com.example.lledent.outerspacemanager;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-
-import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -22,23 +17,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by lledent on 16/04/2018.
  */
 
-public class FleetActivity extends AppCompatActivity {
-
+public class GalaxyActivity extends AppCompatActivity {
     // Shared Preferences
     public static final String PREFS_NAME = "MyPrefsFile";
 
     private String token;
 
-    private ListView fleetListView;
-    private List<Ship> apiFleetList;
+    private ListView userListView;
+    private List<UserScore> apiUserList;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fleet_activity);
+        setContentView(R.layout.galaxy_activity);
 
-        fleetListView = (ListView) findViewById(R.id.fleetListViewID);
+        userListView = (ListView) findViewById(R.id.userListViewID);
 
         final SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         token = settings.getString("token", "");
@@ -49,14 +43,14 @@ public class FleetActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         OuterSpaceManagerService service = retrofit.create(OuterSpaceManagerService.class);
-        Call<ShipsListResponse> request = service.getFleetList(token);
+        Call<UserListResponse> request = service.getUserList(token, 0, 20);
 
-        request.enqueue(new Callback<ShipsListResponse>() {
+        request.enqueue(new Callback<UserListResponse>() {
             @Override
-            public void onResponse(Call<ShipsListResponse> call, Response<ShipsListResponse> response) {
+            public void onResponse(Call<UserListResponse> call, Response<UserListResponse> response) {
                 if (response.code() == 200) {
-                    apiFleetList = response.body().ships;
-                    fleetListView.setAdapter(new FleetArrayAdapter(getApplicationContext(), apiFleetList));
+                    apiUserList = response.body().users;
+                    userListView.setAdapter(new UserArrayAdapter(getApplicationContext(), apiUserList));
 //                    fleetListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //                        @Override
 //                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -74,7 +68,7 @@ public class FleetActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ShipsListResponse> call, Throwable t) {
+            public void onFailure(Call<UserListResponse> call, Throwable t) {
 
             }
         });

@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buildingButton;
     private Button fleetButton;
     private Button searchesButton;
-    private Button spaceButton;
+    private Button shipyardButton;
     private Button galaxyButton;
     private Button logoutButton;
 
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         buildingButton = (Button) findViewById(R.id.mainBuildingButtonID);
         fleetButton = (Button) findViewById(R.id.mainFleetButtonID);
         searchesButton = (Button) findViewById(R.id.mainSearchesButtonID);
-        spaceButton = (Button) findViewById(R.id.mainSpaceButtonID);
+        shipyardButton = (Button) findViewById(R.id.mainShipyardButtonID);
         galaxyButton = (Button) findViewById(R.id.mainGalaxyButtonID);
         logoutButton = (Button) findViewById(R.id.mainLogoutButtonID);
 
@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
         token = settings.getString("token", "");
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://outer-space-manager.herokuapp.com")
+//                .baseUrl("https://outer-space-manager.herokuapp.com")
+                .baseUrl("https://outer-space-manager-staging.herokuapp.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         OuterSpaceManagerService service = retrofit.create(OuterSpaceManagerService.class);
@@ -113,6 +114,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent fleetActivity = new Intent(getApplicationContext(), FleetActivity.class);
                 startActivity(fleetActivity);
+            }
+        });
+
+        // SHIPYARD
+        shipyardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shipyardActivity = new Intent(getApplicationContext(), ShipyardActivity.class);
+                startActivity(shipyardActivity);
+            }
+        });
+
+        // GALAXY
+        galaxyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galaxyActivity = new Intent(getApplicationContext(), GalaxyActivity.class);
+                startActivity(galaxyActivity);
             }
         });
 

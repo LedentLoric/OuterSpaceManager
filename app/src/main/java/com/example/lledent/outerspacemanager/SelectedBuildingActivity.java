@@ -93,7 +93,8 @@ public class SelectedBuildingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("https://outer-space-manager.herokuapp.com")
+//                        .baseUrl("https://outer-space-manager.herokuapp.com")
+                        .baseUrl("https://outer-space-manager-staging.herokuapp.com")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
                 OuterSpaceManagerService service = retrofit.create(OuterSpaceManagerService.class);
@@ -103,7 +104,7 @@ public class SelectedBuildingActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<GetBuildingResponse> call, Response<GetBuildingResponse> response) {
                         if (response.code() == 200) {
-                            Toast.makeText(getApplicationContext(), "Building acquit", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Acquired building !", Toast.LENGTH_SHORT).show();
                         } else {
                             try {
                                 JSONObject errorResponse = new JSONObject(response.errorBody().string());
