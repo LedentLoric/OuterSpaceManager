@@ -66,9 +66,9 @@ public class SearchesActivity extends AppCompatActivity {
                             Gson gson = new Gson();
                             String jsonSelectedSearch = gson.toJson(selectedSearch);
 
-                            Intent selectShipActivity = new Intent(getApplicationContext(), SeletedShipActivity.class);
-                            selectShipActivity.putExtra("selectedSearch", jsonSelectedSearch);
-                            startActivity(selectShipActivity);
+                            Intent selectSearchActivity = new Intent(getApplicationContext(), SelectedSearchActivity.class);
+                            selectSearchActivity.putExtra("selectedSearch", jsonSelectedSearch);
+                            startActivity(selectSearchActivity);
                         }
                     });
                 }

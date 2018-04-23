@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="24dp">
 
     <TextView
         android:id="@+id/fragmentSelectedBuildingNameTextViewID"
@@ -12,15 +14,13 @@
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/fragmentSelectedBuildingLevelTextViewID"
@@ -38,8 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/fragmentSelectedBuildingGasCostTextViewID"
@@ -57,8 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/fragmentSelectedBuildingGasCostByLevelTextViewID"
@@ -76,8 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/fragmentSelectedBuildingAmountOfEffectTextViewID"
@@ -95,8 +92,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp">
+        android:orientation="horizontal">
         <TextView
             android:id="@+id/fragmentSelectedBuildingAmountOfEffectByLevelTextViewID"
             android:layout_width="0dp"
@@ -123,7 +119,10 @@
             android:layout_weight="0"
             android:text="Acquérir"
             android:textAlignment="center"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:background="@drawable/rounded_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:textColor="@android:color/white"/>
     </RelativeLayout>
 
 </LinearLayout>

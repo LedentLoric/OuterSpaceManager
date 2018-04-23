@@ -54,6 +54,7 @@ public class SelectedBuildingActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.selected_building_activity);
+
         image = (ImageView) findViewById(R.id.selectedBuildingImageID);
         name = (TextView) findViewById(R.id.selectedBuildingNameTextViewID);
         level = (TextView) findViewById(R.id.selectedBuildingLevelTextViewID);

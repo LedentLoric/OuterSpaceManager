@@ -14,13 +14,13 @@
         android:id="@+id/buildingRowNameTextViewID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="0"
         android:text="Name"
         android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"/>
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->

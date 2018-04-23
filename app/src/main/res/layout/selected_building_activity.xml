@@ -14,13 +14,13 @@
         android:id="@+id/selectedBuildingNameTextViewID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="0"
         android:text="Name"
         android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"/>
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,14 +34,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Level : " />
+            android:text="Level : "
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/selectedBuildingEffectTextViewID"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Effect : " />
+            android:text="Effect : "
+            android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,14 +57,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Gas Cost : " />
+            android:text="Gas Cost : "
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/selectedBuildingMineralCostTextViewID"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Mineral Cost : " />
+            android:text="Mineral Cost : "
+            android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -76,14 +80,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Gas Cost (by lv.) : " />
+            android:text="Gas Cost (by lv.) : "
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/selectedBuildingMineralCostByLevelTextViewID"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Mineral Cost (by lv.) : " />
+            android:text="Mineral Cost (by lv.) : "
+            android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -97,14 +103,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Amount of effect : " />
+            android:text="Amount of effect : "
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/selectedBuildingTimeToBuildTextViewID"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Time to build : " />
+            android:text="Time to build : "
+            android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -112,19 +120,22 @@
         android:layout_weight="0"
         android:orientation="horizontal"
         android:layout_marginHorizontal="8dp">
+
         <TextView
             android:id="@+id/selectedBuildingAmountOfEffectByLevelTextViewID"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Amount of Effect (by lv.) : " />
+            android:text="Amount of Effect (by lv.) : "
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/selectedBuildingTimeToBuildByLevelTextViewID"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Time to build (by lv.) : " />
+            android:text="Time to build (by lv.) : "
+            android:textSize="18sp" />
     </LinearLayout>
 
     <RelativeLayout
@@ -139,7 +150,10 @@
             android:layout_centerVertical="true"
             android:layout_weight="0"
             android:text="Get this building"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:background="@drawable/rounded_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:textColor="@android:color/white"/>
     </RelativeLayout>
 
 

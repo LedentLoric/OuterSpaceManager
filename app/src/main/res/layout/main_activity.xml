@@ -2,99 +2,136 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="24dp">
 
-    <TextView
-        android:id="@+id/mainUsernameTextViewID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_weight="0"
-        android:text="Username"
-        android:textAlignment="center"
-        android:textSize="36sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/mainPointTextViewID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Points : 0"
-            android:textAlignment="center" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0"
-        android:orientation="vertical"
-        android:gravity="bottom"
-        android:layout_marginBottom="16dp">
+        android:layout_weight="3">
 
-        <Button
-            android:id="@+id/mainOverviewButtonID"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Overview"
-            android:textSize="18sp" />
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/mainBuildingButtonID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Building"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/mainUsernameTextViewID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="0"
+                android:text="Username"
+                android:textAlignment="center"
+                android:textColor="@color/colorLabel"
+                android:textSize="40sp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/mainFleetButtonID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Fleet"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/mainPointTextViewID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Points : 0"
+                android:textAlignment="center"
+                android:textSize="14sp" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/mainSearchesButtonID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Searches"
-            android:textSize="18sp" />
+    </RelativeLayout>
 
-        <Button
-            android:id="@+id/mainShipyardButtonID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Space Shipyard"
-            android:textSize="18sp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-        <Button
-            android:id="@+id/mainGalaxyButtonID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Galaxy"
-            android:textSize="18sp" />
-        <Button
-            android:id="@+id/mainLogoutButtonID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Log out"
-            android:textSize="18sp" />
+        <LinearLayout
+            android:layout_width="275dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/mainOverviewButtonID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_button"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="Overview"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/mainBuildingButtonID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_button"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="Building"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/mainFleetButtonID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_button"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="Fleet"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/mainSearchesButtonID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_button"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="Searches"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/mainShipyardButtonID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_button"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="Space Shipyard"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/mainGalaxyButtonID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_button"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="Galaxy"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/mainLogoutButtonID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_button"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="Log out"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

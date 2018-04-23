@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginTop="16dp">
+
+    <TextView
+        android:id="@+id/selectedSearchNameTextViewID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/selectedSearchEffectTextViewID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Effect : " />
+
+        <TextView
+            android:id="@+id/selectedSearchLevelTextViewID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Level : " />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/selectedSearchEffectByLevelTextViewID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Amount of effect by level : "
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/selectedSearchGasCostLv0TextViewID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Gas Cost : " />
+
+        <TextView
+            android:id="@+id/selectedSearchMineralCostLv0TextViewID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mineral Cost : " />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/selectedSearchGasCostByLvTextViewID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Gas Cost (by lv.) : " />
+
+        <TextView
+            android:id="@+id/selectedSearchMineralCostByLvTextViewID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mineral Cost (by lv.) : " />
+    </LinearLayout>
+
+</LinearLayout>
