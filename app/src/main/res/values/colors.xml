@@ -6,4 +6,5 @@
 
     <color name="colorLabel">#616BA4</color>
     <color name="colorButton">#707CBE</color>
+    <color name="colorLogoutButton">#BDBDBD</color>
 </resources>

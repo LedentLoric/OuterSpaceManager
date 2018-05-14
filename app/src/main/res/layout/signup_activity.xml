@@ -112,12 +112,12 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_weight="1"
-            android:text="S'inscrire"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:textColor="@android:color/white"
             android:background="@drawable/rounded_button"
-            android:foreground="?android:attr/selectableItemBackground" />
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="Sign Up"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
     </RelativeLayout>
 
 </LinearLayout>
