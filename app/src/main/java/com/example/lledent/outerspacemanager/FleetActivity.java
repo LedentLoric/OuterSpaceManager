@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -29,7 +32,9 @@ public class FleetActivity extends AppCompatActivity {
 
     private String token;
 
-    private ListView fleetListView;
+    private RecyclerView fleetListView;
+    private LinearLayoutManager layoutManager;
+    private FleetArrayAdapter adapter;
     private List<Ship> apiFleetList;
 
 
@@ -38,7 +43,7 @@ public class FleetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fleet_activity);
 
-        fleetListView = (ListView) findViewById(R.id.fleetListViewID);
+        fleetListView = (RecyclerView) findViewById(R.id.fleetListViewID);
 
         final SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         token = settings.getString("token", "");
@@ -56,7 +61,14 @@ public class FleetActivity extends AppCompatActivity {
             public void onResponse(Call<ShipsListResponse> call, Response<ShipsListResponse> response) {
                 if (response.code() == 200) {
                     apiFleetList = response.body().ships;
-                    fleetListView.setAdapter(new FleetArrayAdapter(getApplicationContext(), apiFleetList));
+                    layoutManager = new LinearLayoutManager(FleetActivity.this);
+                    fleetListView.setLayoutManager(layoutManager);
+                    adapter = new FleetArrayAdapter(getApplicationContext(), apiFleetList);
+                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(fleetListView.getContext(),
+                            layoutManager.getOrientation());
+                    fleetListView.addItemDecoration(dividerItemDecoration);
+                    fleetListView.setAdapter(adapter);
+//                    fleetListView.setAdapter(new FleetArrayAdapter(getApplicationContext(), apiFleetList));
                 }
             }
 
