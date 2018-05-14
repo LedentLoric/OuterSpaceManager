@@ -108,7 +108,7 @@ public class SelectedBuildingFragment extends Fragment {
                     @Override
                     public void onResponse(Call<GetBuildingResponse> call, Response<GetBuildingResponse> response) {
                         if (response.code() == 200) {
-                            Toast.makeText(getContext(), "Building acquit", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Acquired building !", Toast.LENGTH_SHORT).show();
                         } else {
                             try {
                                 JSONObject errorResponse = new JSONObject(response.errorBody().string());

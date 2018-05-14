@@ -2,14 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8px"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="8dp">
 
     <TextView
         android:id="@+id/fleetRowNameTextViewID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name"
+        android:textAlignment="center"
         android:textColor="@color/colorLabel"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -19,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Amount of ships : "
+        android:textAlignment="center"
         android:textSize="18sp" />
 
 </LinearLayout>

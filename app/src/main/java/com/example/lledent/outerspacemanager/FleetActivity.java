@@ -68,7 +68,6 @@ public class FleetActivity extends AppCompatActivity {
                             layoutManager.getOrientation());
                     fleetListView.addItemDecoration(dividerItemDecoration);
                     fleetListView.setAdapter(adapter);
-//                    fleetListView.setAdapter(new FleetArrayAdapter(getApplicationContext(), apiFleetList));
                 }
             }
 
