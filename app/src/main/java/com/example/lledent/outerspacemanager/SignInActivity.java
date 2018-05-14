@@ -63,7 +63,7 @@ public class SignInActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ConnectionResponse> call, Response<ConnectionResponse> response) {
                         if (response.code() == 200) {
-                            Toast.makeText(getApplicationContext(),"Bienvenue !",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Welcome !",Toast.LENGTH_SHORT).show();
                             token = response.body().token;
 
                             SharedPreferences.Editor editor = settings.edit();
@@ -74,7 +74,7 @@ public class SignInActivity extends AppCompatActivity {
                             startActivity(mainActivity);
 
                         } else {
-                            Toast.makeText(getApplicationContext(),"Impossible de se connecter à ce compte",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"The connection failed",Toast.LENGTH_SHORT).show();
                         }
                     }
 

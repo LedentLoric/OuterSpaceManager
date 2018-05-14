@@ -33,14 +33,10 @@ public class ShipArrayAdapter extends ArrayAdapter {
         View rowView = inflater.inflate(R.layout.ship_row, parent, false);
 
         TextView shipName = (TextView) rowView.findViewById(R.id.shipRowNameTextViewID);
-        TextView shipLife = (TextView) rowView.findViewById(R.id.shipRowLifeTextViewID);
-        TextView shipAttack = (TextView) rowView.findViewById(R.id.shipRowAttTextViewID);
-        TextView shipShield = (TextView) rowView.findViewById(R.id.shipRowShieldTextViewID);
+        TextView shipLife = (TextView) rowView.findViewById(R.id.shipRowSpatioTextViewID);
 
         shipName.setText(values.get(position).name);
-        shipLife.setText("Life : " + Integer.toString(values.get(position).life));
-        shipAttack.setText("Attack : " + Integer.toString(values.get(position).minAttack) + " - " + Integer.toString(values.get(position).maxAttack));
-        shipShield.setText("Shield : " + Integer.toString(values.get(position).shield));
+        shipLife.setText("Spatioport Level : " + Integer.toString(values.get(position).spatioportLevelNeeded));
 
         return rowView;
     }

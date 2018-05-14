@@ -6,7 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="8dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -22,7 +23,8 @@
                 android:layout_weight="3"
                 android:text="1"
                 android:textAlignment="center"
-                android:textSize="24sp"
+                android:textColor="@color/colorLabel"
+                android:textSize="30sp"
                 android:textStyle="bold" />
         </RelativeLayout>
 
@@ -37,14 +39,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Username"
-                android:textSize="18sp"
+                android:textColor="@color/colorLabel"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/galaxyRowPointsTextViewID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Points : " />
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="Points : "
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

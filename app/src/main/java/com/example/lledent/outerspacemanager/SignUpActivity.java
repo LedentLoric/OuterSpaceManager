@@ -61,7 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ConnectionResponse> call, Response<ConnectionResponse> response) {
                         if (response.code() == 200) {
-                            Toast.makeText(getApplicationContext(),"Votre compte a bien été créé. Bienvenue !",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Welcome !",Toast.LENGTH_SHORT).show();
 
                             token = response.body().token;
 

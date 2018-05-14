@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (response.code() == 403) {
                     settings.edit().remove("token").commit();
 
-                    Toast.makeText(getApplicationContext(),"Votre accès a expiré",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Your access has expired",Toast.LENGTH_SHORT).show();
                     Intent signInActivity = new Intent(getApplicationContext(), SignInActivity.class);
                     startActivity(signInActivity);
                 }
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 settings.edit().remove("token").commit();
 
-                Toast.makeText(getApplicationContext(),"Vous avez été déconnecté",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"You have been disconnected",Toast.LENGTH_SHORT).show();
                 Intent signInActivity = new Intent(getApplicationContext(), SignInActivity.class);
                 startActivity(signInActivity);
             }

@@ -7,6 +7,6 @@
         android:id="@+id/userListViewID"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp"/>
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="24dp"/>
 </LinearLayout>
